@@ -1,0 +1,591 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;200;300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --background: #e6f4f1;
+  --area: #dceae7;
+  --shadow: #121312;
+  --button: #2f7745;
+  --buttonH: #050666;
+  --buttonH2: #2f7745;
+  --font: #050666;
+  --letter: #fffcfc;
+
+  /*Dark-mode*/
+  --background-dark: #1c2331;
+  --area-dark: #2b3241;
+  --shadow-dark: #44b399;
+  --button-dark: #004079;
+  --buttonH-dark: #002e57;
+  --buttonH2-dark: #1c3068;
+}
+
+.switch {
+  background: var(--shadow);
+  border-radius: 1000px;
+  border: none;
+  position: absolute;
+  top: -50px;
+  left: 150px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 110px;
+  display: flex;
+  outline: none;
+}
+
+.switch > div {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio {
+  width: 110px;
+  height: 110px;
+}
+
+.radio:first-child:checked {
+  opacity: 0;
+}
+
+.radio:last-child:checked {
+  opacity: 0;
+}
+
+body {
+  background-color: var(--background);
+  transition: 0.25s ease-in-out;
+}
+
+.dark {
+  background-color: var(--background-dark);
+  transition: 0.25s ease-in-out;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.logoAlura {
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  transition: 0.25s ease-in-out;
+}
+
+.dark .logoAlura {
+  filter: drop-shadow(-3px 3px 2px var(--shadow-dark));
+  transition: 0.25s ease-in-out;
+}
+
+.interactuar {
+  height: 100%;
+  position: relative;
+  left: 100px;
+  top: 80px;
+}
+
+.interactuar > textarea {
+  width: 800px;
+  height: 470px;
+}
+
+.areas {
+  padding: 1em;
+  resize: none;
+  border-radius: 1em;
+  font-size: large;
+  background-color: var(--area);
+  box-shadow: -7px 7px 10px var(--shadow);
+  transition: 0.25s ease-in-out;
+}
+
+.dark .areas {
+  background-color: var(--area-dark);
+  box-shadow: -7px 7px 10px var(--shadow-dark);
+  color: var(--letter);
+  transition: 0.25s ease-in-out;
+}
+
+.areas:focus {
+  outline: none;
+}
+
+.validacion {
+  margin: 10px 0;
+  gap: 10px;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  color: #0d0e0d;
+}
+
+.validacion > img {
+  animation: pop 3s infinite;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 10px 0;
+  justify-content: space-between;
+}
+
+.boton {
+  margin: 5px;
+  width: 30%;
+  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 29px;
+  color: var(--letter);
+  background-color: var(--button);
+  border: 2px solid var(--button);
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.boton:hover {
+  background-color: var(--buttonH);
+}
+
+.dark .boton {
+  background-color: var(--button-dark);
+  border: var(--button-dark);
+  transition: 0.25s ease-in-out;
+}
+
+.dark .boton:hover {
+  background-color: var(--buttonH-dark);
+}
+
+button:first-child::after {
+  content: "Encriptar";
+}
+
+button:nth-child(2)::after {
+  content: "Limpiar";
+}
+
+button:nth-child(3)::after {
+  content: "Desencriptar";
+}
+
+.resultados {
+  position: relative;
+  left: 200px;
+}
+
+.resultados > textarea {
+  width: 350px;
+  height: 620px;
+  display: flex;
+  position: relative;
+  top: 30px;
+}
+
+.botones > input {
+  width: 350px;
+  margin: 5px;
+  position: relative;
+  left: 15px;
+  bottom: 55px;
+  cursor: pointer;
+  background-color: var(--font);
+  color: var(--letter);
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 29px;
+  transition: 0.25s ease-in-out;
+}
+
+
+.botones > input:hover {
+  background-color: var(--buttonH2);
+}
+
+.dark .botones > input {
+  background-color: var(--background-dark);
+  border: 2px solid var(--background-dark);
+  transition: 0.25s ease-in-out;
+}
+
+.dark .botones > input:hover {
+  background-color: var(--buttonH2-dark);
+}
+
+.notificacion {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  background-color: #44b399;
+  color: var(--letter);
+  border-radius: 15px;
+  height: 60px;
+  width: 33%;
+  z-index: 2;
+  position: absolute;
+  top: 40px;
+  left: 33%;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: desplazar 3s linear infinite;
+}
+
+.dark .notificacion{
+  background-color: #ecf1f5df;
+}
+
+@keyframes desplazar {
+  5% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+aside {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  left: 220px;
+  top: 70px;
+}
+
+.muñeco {
+  width: 350px;
+  animation: spin 10s infinite;
+  position: absolute;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.diamante {
+  position: absolute;
+  width: 75px;
+  left: 70px;
+  top: 33px;
+  animation: diamond 10s infinite;
+}
+
+@keyframes diamond {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.mensaje {
+  position: absolute;
+  top: 370px;
+  left: 10px;
+  animation: up 2s 100ms infinite;
+  transition: 0.25s ease-in-out;
+}
+
+.dark .mensaje {
+  filter: drop-shadow(-1px 0px 0px white);
+  transition: 0.25s ease-in-out;
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+footer {
+  color: var(--font);
+  display: flex;
+  gap: 15px;
+  position: absolute;
+  top: 720px;
+  left: 600px;
+  transition: 0.25s ease-in-out;
+}
+
+.dark footer {
+  color: var(--letter);
+  transition: 0.25s ease-in-out;
+}
+
+a {
+  color: var(--font);
+}
+
+@media screen and (min-width: 641px) and (max-width: 1007px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logoAlura {
+    left: 10%;
+  }
+
+  .switch {
+    left: 68%;
+    top: -30px;
+  }
+
+  .interactuar {
+    left: 90px;
+    top: 110px;
+  }
+
+  .interactuar > textarea {
+    width: 90%;
+    height: 300px;
+  }
+
+  .validacion {
+    margin-top: 18px;
+    height: 0px;
+  }
+
+  .botones {
+    width: 90%;
+    position: relative;
+    top: 5px;
+    gap: 25px;
+    left: 20px;
+    justify-content: space-evenly;
+  }
+  .resultados {
+    width: 100%;
+    position: absolute;
+    top: 540px;
+    left: 90px;
+  }
+
+  .resultados > textarea {
+    width: 90%;
+    height: 300px;
+  }
+
+  .botones > input {
+    width: 100%;
+    left: -5px;
+  }
+
+  .muñeco,
+  .diamante {
+    display: none;
+  }
+
+  .mensaje {
+    display: flex;
+    top: 140px;
+    left: 10%;
+  }
+
+  .notificacion {
+    font-size: large;
+    width: 50%;
+    top: 690px;
+    left: 35%;
+  }
+
+  footer {
+    position: absolute;
+    top: 980px;
+    left: 42.5%;
+    transform: scale(1.2);
+  }
+}
+@media screen and (max-width: 640px) {
+  body {
+    width: 50%;
+    margin: 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .logoAlura {
+    position: relative;
+    left: 15%;
+  }
+
+  .switch {
+    left: 13%;
+    top: -100px;
+  }
+
+  .interactuar {
+    width: 145%;
+    left: 16px;
+    top: 30px;
+  }
+
+  .interactuar > textarea {
+    width: 118%;
+    height: 300px;
+  }
+
+  .validacion {
+    font-size: small;
+    width: 500px;
+    margin-top: 18px;
+  }
+
+  .botones {
+    width: 100%;
+    position: relative;
+    left: 15%;
+    top: 5px;
+    gap: 50px;
+  }
+
+  .boton {
+    display: flex;
+    transform: scale(1.3);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .botones > button:nth-child(1)::after {
+    content: url(./imagenes/entrada.png);
+  }
+
+  .botones > button:nth-child(2) {
+    display: none;
+  }
+
+  .botones > button:nth-child(3)::after {
+    content: url(./imagenes/des.png);
+  }
+
+  .resultados {
+    width: 145%;
+    position: relative;
+    left: 16px;
+    top: 5px;
+  }
+
+  .resultados > textarea {
+    width: 118%;
+    height: 300px;
+  }
+
+  .botones > input {
+    position: relative;
+    height: 50px;
+    width: 120%;
+    left: 3%;
+    top: -60px;
+    font-size: small;
+    cursor: pointer;
+    background-color: var(--font);
+    color: var(--letter);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    font-weight: bold;
+    border-radius: 29px;
+    transition: 0.25s ease-in-out;
+  }
+
+  .muñeco,
+  .diamante {
+    display: none;
+  }
+
+  .mensaje {
+    width: 150%;
+    left: -85%;
+    top: 60px;
+  }
+
+  .notificacion {
+    font-size: small;
+    width: 80%;
+    left: 14%;
+    top: 670px;
+  }
+
+  .validacion {
+    transform: scale();
+    gap: 13px;
+  }
+
+  footer {
+    position: absolute;
+    top: 920px;
+    left: 15%;
+    transform: scale(0.8);
+    align-items: center;
+    gap: 15px;
+  }
+ 
+}
+.panama{
+  width: 35%;
+  position: absolute;
+  top: 25px;
+  left: 90px;
+}

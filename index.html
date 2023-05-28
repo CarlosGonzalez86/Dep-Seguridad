@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge-Oracle Next Education</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./imagenes/aluraoracle.png" />
+  </head>
+  <body>
+    <header>
+      <img src="./imagenes/aluraoracle.png" alt="" class="logoAlura" />
+    </header>
+    <main>
+      <p class="notificacion">Texto copiado correctamente</p>
+      <aside>
+        <div class="switch" id="dark">
+          <div>
+            <input type="radio" name="dark" class="radio" checked/>
+            <input type="radio" name="dark" class="radio" />
+          </div>
+          <img src="./imagenes/claro.svg" alt="icono tema claro" />
+          <img src="./imagenes/oscuro.svg" alt="Ícono tema obcuro" />
+        </div>
+      </aside>
+      <section class="interactuar">
+        <textarea
+          id="entrada"
+          class="areas"
+          placeholder="Ingrese algo..."
+        ></textarea>
+        <div class="validacion" id="validacion">
+          <img src="./imagenes/advertencia.svg" alt="Ícono de alerta" />
+          <p>Solo letras minúsculas y sin acentos</p>
+        </div>
+        <div class="botones">
+          <button id="encriptar" class="boton"></button >
+          <button id="limpiar" class="boton"></button >
+          <button id="desencriptar" class="boton"></button >
+          </div>
+      </section>
+      <aside>
+        <div id="muñeco">
+          <img
+            src="./imagenes/muñeco.svg"
+            alt="Muñeco con lupa y fondo de puntos azules"
+            class="muñeco"
+          />
+          <img src="./imagenes/diamante.svg" alt="Diamante " class="diamante" />
+        </div>
+        <img src="./imagenes/mensaje.svg" alt="" class="mensaje" id="mensaje" />
+      </aside>
+      <section class="resultados">
+        <textarea id="salida" class="areas" readonly></textarea>
+        <div class="botones">
+          <input type="submit" value="Copiar texto" id="copiar" class="copiar" />
+        </div>
+      </section>
+    </main>
+    <footer>
+    <div>
+       <i><h6>Alumno: Carlos González Concepción</h6></i> 
+      <img src="./imagenes/panama.png" class="panama"/> 
+    </div>
+       </footer>
+  </body>
+  <script src="./script.js"></script>
+</html>
