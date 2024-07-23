@@ -30,16 +30,14 @@
 }
 
 /* Common Styles */
-body, .dark {
-  transition: background-color 0.25s ease-in-out;
-}
-
 body {
   background-color: var(--background);
+  transition: background-color 0.25s ease-in-out;
 }
 
 .dark {
   background-color: var(--background-dark);
+  transition: background-color 0.25s ease-in-out;
 }
 
 /* Switch */
