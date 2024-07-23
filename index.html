@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <img src="./imagenes/aluraoracle.png" alt="Logo de Alura Oracle" class="logoAlura" />
+      <img src="./imagenes/aluraoracle.png" alt="" class="logoAlura" />
     </header>
     <main>
       <p class="notificacion">Texto copiado correctamente</p>
@@ -20,32 +20,38 @@
             <input type="radio" name="dark" class="radio" checked/>
             <input type="radio" name="dark" class="radio" />
           </div>
-          <img src="./imagenes/claro.svg" alt="Icono tema claro" />
-          <img src="./imagenes/oscuro.svg" alt="Ícono tema oscuro" />
+          <img src="./imagenes/claro.svg" alt="icono tema claro" />
+          <img src="./imagenes/oscuro.svg" alt="Ícono tema obcuro" />
         </div>
       </aside>
       <section class="interactuar">
-        <label for="entrada">Ingrese algo:</label>
-        <textarea id="entrada" class="areas" placeholder="Ingrese algo..."></textarea>
+        <textarea
+          id="entrada"
+          class="areas"
+          placeholder="Ingrese algo..."
+        ></textarea>
         <div class="validacion" id="validacion">
           <img src="./imagenes/advertencia.svg" alt="Ícono de alerta" />
           <p>Solo letras minúsculas y sin acentos</p>
         </div>
         <div class="botones">
-          <button id="encriptar" class="boton">Encriptar</button>
-          <button id="limpiar" class="boton">Limpiar</button>
-          <button id="desencriptar" class="boton">Desencriptar</button>
-        </div>
+          <button id="encriptar" class="boton"></button >
+          <button id="limpiar" class="boton"></button >
+          <button id="desencriptar" class="boton"></button >
+          </div>
       </section>
       <aside>
         <div id="muñeco">
-          <img src="./imagenes/muñeco.svg" alt="Muñeco con lupa y fondo de puntos azules" class="muñeco" />
-          <img src="./imagenes/diamante.svg" alt="Diamante" class="diamante" />
+          <img
+            src="./imagenes/muñeco.svg"
+            alt="Muñeco con lupa y fondo de puntos azules"
+            class="muñeco"
+          />
+          <img src="./imagenes/diamante.svg" alt="Diamante " class="diamante" />
         </div>
-        <img src="./imagenes/mensaje.svg" alt="Mensaje" class="mensaje" id="mensaje" />
+        <img src="./imagenes/mensaje.svg" alt="" class="mensaje" id="mensaje" />
       </aside>
       <section class="resultados">
-        <label for="salida">Resultado:</label>
         <textarea id="salida" class="areas" readonly></textarea>
         <div class="botones">
           <input type="submit" value="Copiar texto" id="copiar" class="copiar" />
@@ -53,11 +59,11 @@
       </section>
     </main>
     <footer>
-      <div>
-        <i><h6>Alumno: Carlos González Concepción</h6></i>
-        <img src="./imagenes/panama.png" alt="Bandera de Panamá" class="panama" />
-      </div>
-    </footer>
-    <script src="./script.js"></script>
+    <div>
+       <i><h6>Alumno: Carlos González Concepción</h6></i> 
+      <img src="./imagenes/panama.png" class="panama"/> 
+    </div>
+       </footer>
   </body>
+  <script src="./script.js"></script>
 </html>
