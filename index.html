@@ -1,69 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Challenge-Oracle Next Education</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="./imagenes/aluraoracle.png" />
-  </head>
-  <body>
-    <header>
-      <img src="./imagenes/aluraoracle.png" alt="" class="logoAlura" />
-    </header>
-    <main>
-      <p class="notificacion">Texto copiado correctamente</p>
-      <aside>
-        <div class="switch" id="dark">
-          <div>
-            <input type="radio" name="dark" class="radio" checked/>
-            <input type="radio" name="dark" class="radio" />
-          </div>
-          <img src="./imagenes/claro.svg" alt="icono tema claro" />
-          <img src="./imagenes/oscuro.svg" alt="Ícono tema obcuro" />
-        </div>
-      </aside>
-      <section class="interactuar">
-        <textarea
-          id="entrada"
-          class="areas"
-          placeholder="Ingrese algo..."
-        ></textarea>
-        <div class="validacion" id="validacion">
-          <img src="./imagenes/advertencia.svg" alt="Ícono de alerta" />
-          <p>Solo letras minúsculas y sin acentos</p>
-        </div>
-        <div class="botones">
-          <button id="encriptar" class="boton"></button >
-          <button id="limpiar" class="boton"></button >
-          <button id="desencriptar" class="boton"></button >
-          </div>
-      </section>
-      <aside>
-        <div id="muñeco">
-          <img
-            src="./imagenes/muñeco.svg"
-            alt="Muñeco con lupa y fondo de puntos azules"
-            class="muñeco"
-          />
-          <img src="./imagenes/diamante.svg" alt="Diamante " class="diamante" />
-        </div>
-        <img src="./imagenes/mensaje.svg" alt="" class="mensaje" id="mensaje" />
-      </aside>
-      <section class="resultados">
-        <textarea id="salida" class="areas" readonly></textarea>
-        <div class="botones">
-          <input type="submit" value="Copiar texto" id="copiar" class="copiar" />
-        </div>
-      </section>
-    </main>
-    <footer>
-    <div>
-       <i><h6>Alumno: Carlos González Concepción</h6></i> 
-      <img src="./imagenes/panama.png" class="panama"/> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día del CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #003366;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #003366;
+            font-size: 2em;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #003366;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #003366;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #002244;
+        }
+        #logo {
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        #gif {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="logo" src="imagene/logo.png" alt="Logo CSS" width="150">
+        <h1>Departamento de Seguridad</h1>
+        <p>Por favor, ingresa tu nombre:</p>
+        <input type="text" id="name" placeholder="Tu nombre">
+        <button onclick="felicitar()">Felicitar</button>
+        <p id="message"></p>
+        <img id="gif" src="imagene/seguridad.gif" alt="GIF de celebración">
     </div>
-       </footer>
-  </body>
-  <script src="./script.js"></script>
+
+    <script>
+        function felicitar() {
+            var nombre = document.getElementById("name").value;
+            var mensaje = "¡Carlos te desea Feliz Día del Seguridad, " + nombre + " Sigue adelante con tus Objetivos y Meta!";
+            var messageElement = document.getElementById("message");
+            messageElement.innerText = mensaje;
+            messageElement.classList.add("animate");
+
+            var gifElement = document.getElementById("gif");
+            gifElement.style.display = 'block';
+            gifElement.classList.add("animate");
+        }
+    </script>
+</body>
 </html>
