@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleños</title>
+    <title>Feliz Cumpleaños</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,23 +69,29 @@
         .animate {
             animation: fadeIn 2s ease-in-out;
         }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #003366;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img id="logo" src="imagene/yeseline.png" alt="imagen" width="150">
-        <h1>Para la Niña mas linda </h1>
+        <h1>Para la Niña más linda</h1>
         <p>Por favor, ingresa tu nombre:</p>
         <input type="text" id="name" placeholder="Tu nombre">
         <button onclick="felicitar()">Felicitar</button>
         <p id="message"></p>
         <img id="gif" src="imagene/anime.gif" alt="GIF de celebración">
+        <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </div>
 
     <script>
         function felicitar() {
             var nombre = document.getElementById("name").value;
-            var mensaje = "¡Hola mi amor Carlos te desea un Feliz Cumpleños en tus 21 años BB, " + nombre + " Que te te valla bien en tu dia!";
+            var mensaje = "¡Hola mi amor Carlos te desea un Feliz Cumpleaños en tus 21 años BB, " + nombre + ". Que te vaya bien en tu día!";
             var messageElement = document.getElementById("message");
             messageElement.innerText = mensaje;
             messageElement.classList.add("animate");
@@ -94,7 +100,7 @@
             gifElement.style.display = 'block';
             gifElement.classList.add("animate");
         }
-<p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </script>
 </body>
 </html>
+
