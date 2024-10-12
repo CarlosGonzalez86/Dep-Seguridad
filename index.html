@@ -18,7 +18,7 @@
             font-size: 2em;
         }
         .container {
-            background-color:#002647;
+            background-color: #002647;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -74,17 +74,23 @@
             font-size: 0.8em;
             color: #FFFFFF;
         }
+        iframe {
+            border: none;
+            max-width: 100%;
+            max-height: 100vh;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img id="logo" src="imagene/SEGURO.jpg" alt="logo" width="150">
-        <h1>Departamento de Seguridad </h1>
+        <h1>Departamento de Seguridad</h1>
         <p>Por favor, ingresa tu nombre:</p>
         <input type="text" id="name" placeholder="Cargo y Nombre">
         <button onclick="felicitar()">Acceso al Formulario</button>
         <p id="message"></p>
         <img id="gif" src="imagene/Formulario (1).gif" alt="imagen Formulario">       
+        <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
         <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </div>
 
@@ -95,13 +101,12 @@
             var messageElement = document.getElementById("message");
             messageElement.innerText = mensaje;
             messageElement.classList.add("animate");
-
             var gifElement = document.getElementById("gif");
             gifElement.style.display = 'block';
             gifElement.classList.add("animate");
-            <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh"allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
         }
     </script>
 </body>
 </html>
+
 
