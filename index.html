@@ -93,19 +93,34 @@
         <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </div>
 
-    <script>
-        function felicitar() {
-            var nombre = document.getElementById("name").value;
-            var mensaje = "¡Bienvenido a la web y al formulario del Departamento de Seguridad Respetado, " + nombre + " llene el formulario al final encontrara el link de acceso al formulario";
-            var messageElement = document.getElementById("message");
-            messageElement.innerText = mensaje;
-            messageElement.classList.add("animate");
-            var gifElement = document.getElementById("gif");
-            gifElement.style.display = 'block';
-            gifElement.classList.add("animate");
-            <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
-        }
-    </script>
+function felicitar() {
+        var nombre = document.getElementById("name").value;
+        var mensaje = "¡Bienvenido a la web y al formulario del Departamento de Seguridad Respetado, " + nombre + " llene el formulario al final encontrara el link de acceso al formulario";
+        
+        var messageElement = document.getElementById("message");
+        messageElement.innerText = mensaje;
+        messageElement.classList.add("animate");
+
+        var gifElement = document.getElementById("gif");
+        gifElement.style.display = 'block';
+        gifElement.classList.add("animate");
+
+        // Crear el iframe
+        var iframe = document.createElement("iframe");
+        iframe.width = "640px";
+        iframe.height = "480px";
+        iframe.src = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true";
+        iframe.allowFullscreen = true;
+        iframe.webkitAllowFullscreen = true;
+        iframe.mozAllowFullscreen = true;
+        iframe.msAllowFullscreen = true;
+
+        // Agregar el iframe al contenedor deseado
+        var container = document.getElementById("iframeContainer"); // Asegúrate de tener un contenedor con este id
+        container.innerHTML = ""; // Limpiar el contenido anterior si es necesario
+        container.appendChild(iframe);
+    }
+</script>
 </body>
 </html>
 
