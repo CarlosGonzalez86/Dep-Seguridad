@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleaños</title>
+    <title>Departamento de Seguridad</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +35,7 @@
             box-sizing: border-box;
         }
         button {
-            background-color: #851e67;
+            background-color: #bde0ff;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -79,19 +79,19 @@
 <body>
     <div class="container">
         <img id="logo" src="imagene/yeseline.png" alt="imagen" width="150">
-        <h1>Para la Niña más linda</h1>
+        <h1>Departamento de Seguridad </h1>
         <p>Por favor, ingresa tu nombre:</p>
-        <input type="text" id="name" placeholder="Tu nombre">
-        <button onclick="felicitar()">Felicitar</button>
+        <input type="text" id="name" placeholder="Cargo y Nombre">
+        <button onclick="felicitar()">Acceso al Formulario</button>
         <p id="message"></p>
         <img id="gif" src="imagene/anime.gif" alt="GIF de celebración">
         <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </div>
 
     <script>
-        function felicitar() {
+        function Felicitar() {
             var nombre = document.getElementById("name").value;
-            var mensaje = "¡Hola mi amor Carlos te desea un Feliz Cumpleaños en tus 21 años BB, " + nombre + ". Que te vaya bien en tu día!";
+            var mensaje = "¡Bienvenido a la web y al formulario del departamento de Seguridad Respetado, " + nombre + " Llene el formulario al final encontrara el link de acceso al formulario";
             var messageElement = document.getElementById("message");
             messageElement.innerText = mensaje;
             messageElement.classList.add("animate");
