@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #FFFFFF;
+            background-color: #002647;
             color: #FFFFFF;
             text-align: center;
             padding: 20px;
@@ -36,7 +36,7 @@
         }
         button {
             background-color: #bde0ff;
-            color: #ffffff;
+            color: #002244;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -46,6 +46,7 @@
         }
         button:hover {
             background-color: #002244;
+            color: #ffffff;
         }
         #logo {
             margin-bottom: 20px;
@@ -56,7 +57,7 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
-        #gif {
+        #gif, #footer-gif {
             display: none;
             margin-top: 20px;
             max-width: 100%;
@@ -91,14 +92,14 @@
         <p id="message"></p>
         <img id="gif" src="imagene/Formulario (1).gif" alt="imagen Formulario"> 
         <div id="iframeContainer"></div>
-<img id="gif" src="imagene/pie.gif" alt="pie de página Formulario"> 
+        <img id="footer-gif" src="imagene/pie.gif" alt="pie de página Formulario"> 
         <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
     </div>
 
 <script>
     function felicitar() {
         var nombre = document.getElementById("name").value;
-        var mensaje = "¡Bienvenido a la web y al formulario del Departamento de Seguridad respetado, " + nombre + " llene el formulario al final encontrara el link de acceso. ";
+        var mensaje = "¡Bienvenido a la web y al formulario del Departamento de Seguridad respetado, " + nombre + ". Llene el formulario; al final encontrará el link de acceso."; 
         
         var messageElement = document.getElementById("message");
         messageElement.innerText = mensaje;
@@ -114,14 +115,15 @@
         iframe.height = "480px";
         iframe.src = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true";
         iframe.allowFullscreen = true;
-        iframe.webkitAllowFullscreen = true;
-        iframe.mozAllowFullscreen = true;
-        iframe.msAllowFullscreen = true;
 
         // Agregar el iframe al contenedor deseado
-        var container = document.getElementById("iframeContainer"); // Asegúrate de tener un contenedor con este id
+        var container = document.getElementById("iframeContainer");
         container.innerHTML = ""; // Limpiar el contenido anterior si es necesario
         container.appendChild(iframe);
+
+        // Mostrar la imagen pie.gif
+        var footerGifElement = document.getElementById("footer-gif");
+        footerGifElement.style.display = 'block';
     }
 </script>
 </body>
