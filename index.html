@@ -1,132 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamento de Seguridad</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #002647;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-        h1 {
-            color: #FFFFFF;
-            font-size: 2em;
-        }
-        .container {
-            background-color: #002647;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-        input[type="text"] {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #003366;
-            margin-bottom: 10px;
-            width: calc(100% - 22px);
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #bde0ff;
-            color: #002244;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        button:hover {
-            background-color: #002244;
-            color: #ffffff;
-        }
-        #logo {
-            margin-bottom: 20px;
-            max-width: 100%;
-            height: auto;
-        }
-        #message {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-        #gif, #footer-gif {
-            display: none;
-            margin-top: 20px;
-            max-width: 100%;
-            height: auto;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .animate {
-            animation: fadeIn 2s ease-in-out;
-        }
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.8em;
-            color: #FFFFFF;
-        }
-        iframe {
-            border: none;
-            max-width: 100%;
-            max-height: 100vh;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Carreras</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <img id="logo" src="imagene/SEGURO.jpg" alt="logo" width="150">
-        <h1>Departamento de Seguridad</h1>
-        <p>Por favor, ingresa tu nombre:</p>
-        <input type="text" id="name" placeholder="Cargo y Nombre">
-        <button onclick="felicitar()">Acceso al Formulario</button>
-        <p id="message"></p>
-        <img id="gif" src="imagene/Formulario (1).gif" alt="imagen Formulario"> 
-        <div id="iframeContainer"></div>
-        <img id="footer-gif" src="imagene/pie.gif" alt="pie de página Formulario"> 
-        <p class="copyright">© Copyright Creado Por Licdo. Carlos E. Gonzalez C.</p>
+  <div id="game-container">
+    <div id="road">
+      <div class="lane"></div>
+      <div class="lane"></div>
+      <div class="lane"></div>
     </div>
+    <img src="img/player-car.svg" id="player-car" alt="Tu Coche">
+    <div id="score">Puntaje: 0</div>
+    <div id="level">Nivel: 1</div>
+    <div id="controls">
+      <button class="control-btn" id="left-btn">&#9664;</button>
+      <button class="control-btn" id="right-btn">&#9654;</button>
+    </div>
+    <div id="game-over">
+      <p>¡Juego Terminado!</p>
+      <button id="restart-btn">Reiniciar</button>
+    </div>
+  </div>
 
-<script>
-    function felicitar() {
-        var nombre = document.getElementById("name").value;
-        var mensaje = "¡Bienvenido a la web y al formulario del Departamento de Seguridad respetado, " + nombre + ". Llene el formulario; al final encontrará el link de acceso."; 
-        
-        var messageElement = document.getElementById("message");
-        messageElement.innerText = mensaje;
-        messageElement.classList.add("animate");
+  <!-- Sonidos -->
+  <audio id="move-sound" src="sounds/move.mp3"></audio>
+  <audio id="coin-sound" src="sounds/coin.mp3"></audio>
+  <audio id="collision-sound" src="sounds/crash.mp3"></audio>
+  <audio id="background-music" src="sounds/music.mp3" loop></audio>
 
-        var gifElement = document.getElementById("gif");
-        gifElement.style.display = 'block';
-        gifElement.classList.add("animate");
-
-        // Crear el iframe
-        var iframe = document.createElement("iframe");
-        iframe.width = "640px";
-        iframe.height = "480px";
-        iframe.src = "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__vFFjmJURVhLUUY1VFQwNTJPWUZMSE9RNTRCNEhJTi4u&embed=true";
-        iframe.allowFullscreen = true;
-
-        // Agregar el iframe al contenedor deseado
-        var container = document.getElementById("iframeContainer");
-        container.innerHTML = ""; // Limpiar el contenido anterior si es necesario
-        container.appendChild(iframe);
-
-        // Mostrar la imagen pie.gif
-        var footerGifElement = document.getElementById("footer-gif");
-        footerGifElement.style.display = 'block';
-    }
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
