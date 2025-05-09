@@ -1,123 +1,150 @@
-let entrada = document.querySelector("#entrada");
-let salida = document.querySelector("#salida");
-let encriptador = document.querySelector("#encriptar");
-let desencriptador = document.querySelector("#desencriptar");
-let limpiar = document.querySelector("#limpiar");
-let copiar = document.querySelector("#copiar");
-let muñeco = document.getElementById("muñeco");
-let msj = document.getElementById("mensaje");
-let alerta = document.getElementById("validacion");
-let notificacion = document.getElementsByClassName("notificacion")[0];
-let dark = document.querySelector("#dark");
-let ancho = document.documentElement.clientWidth + 17;
-let op;
+const gameContainer = document.getElementById('game-container');
+const playerCar = document.getElementById('player-car');
+const scoreDisplay = document.getElementById('score');
+const levelDisplay = document.getElementById('level');
+const gameOverDisplay = document.getElementById('game-over');
+const restartButton = document.getElementById('restart-btn');
+const leftButton = document.getElementById('left-btn');
+const rightButton = document.getElementById('right-btn');
 
-function check() {
-  let vocal = entrada.value;
-  let arreglo = [
-    ["e", "enter"],
-    ["i", "imes"],
-    ["a", "ai"],
-    ["o", "ober"],
-    ["u", "ufat"],
-  ];
+const moveSound = document.getElementById('move-sound');
+const coinSound = document.getElementById('coin-sound');
+const collisionSound = document.getElementById('collision-sound');
+const backgroundMusic = document.getElementById('background-music');
 
-  switch (op) {
-    case 0:
-      for (let i = 0; i < arreglo.length; i++) {
-        if (vocal.includes(arreglo[i][0])) {
-          vocal = vocal.replaceAll(arreglo[i][0], arreglo[i][1]);
-        }
-      }
-      break;
-    case 1:
-      for (let i = 0; i < arreglo.length; i++) {
-        if (vocal.includes(arreglo[i][1])) {
-          vocal = vocal.replaceAll(arreglo[i][1], arreglo[i][0]);
-        }
-      }
-      break;
-    default:
-      muñeco.style.display = "block";
-      msj.style.display = "block";
-      break;
-  }
-  salida.value = vocal;
+const containerWidth = gameContainer.offsetWidth;
+const laneWidth = containerWidth / 3;
+let playerLane = 1;
+let score = 0;
+let level = 1;
+let enemySpeed = 4;
+let gameRunning = true;
+
+const enemyCars = [];
+const coins = [];
+
+backgroundMusic.volume = 0.3;
+backgroundMusic.play().catch(e => console.log("Audio autoplay bloqueado"));
+
+function setPlayerPosition() {
+  const pos = laneWidth * playerLane + laneWidth / 2 - 25;
+  playerCar.style.left = `${pos}px`;
 }
 
-function mostrar() {
-  if (ancho > 1007) {
-    muñeco.style.display = "block";
-    msj.style.display = "block";
-  } else {
-    msj.style.display = "block";
-  }
+function createEnemyCar() {
+  const lane = Math.floor(Math.random() * 3);
+  const enemy = document.createElement('img');
+  enemy.src = 'img/enemy-car.svg';
+  enemy.classList.add('enemy-car');
+  const x = laneWidth * lane + laneWidth / 2 - 25;
+  enemy.style.left = `${x}px`;
+  enemy.style.top = '-120px';
+  gameContainer.appendChild(enemy);
+  enemyCars.push({ element: enemy, lane });
 }
 
-function ocultar() {
-  muñeco.style.display = "none";
-  msj.style.display = "none";
-  salida.style.position = "relative";
-  salida.style.top = 1000;
+function createCoin() {
+  const lane = Math.floor(Math.random() * 3);
+  const coin = document.createElement('div');
+  coin.classList.add('coin');
+  const x = laneWidth * lane + laneWidth / 2 - 15;
+  coin.style.left = `${x}px`;
+  coin.style.top = '-50px';
+  gameContainer.appendChild(coin);
+  coins.push({ element: coin, lane });
 }
 
-function cifrar() {
-  //Comprueba mayúsculas y  con acentos
-  if (!/[A-ZÀ-ÿ\u00f1\u00d1]/g.test(entrada.value)) {
-    op = 0;
-    check();
-    ocultar();
-    alerta.style.display = "none";
+function moveEnemies() {
+  enemyCars.forEach((enemy, i) => {
+    let top = parseInt(enemy.element.style.top) + enemySpeed;
+    enemy.element.style.top = `${top}px`;
 
-    if (entrada.value == "") {
-      mostrar();
+    if (enemy.lane === playerLane && top >= 520 && top <= 620) {
+      collisionSound.play();
+      endGame();
     }
-  } else {
-    mostrar();
-    salida.value = "";
-    alerta.style.display = "flex";
-  }
-}
 
-function decifrar() {
-  if (!/[A-ZÀ-ÿ\u00f1\u00d1]/g.test(entrada.value)) {
-    op = 1;
-    check();
-    ocultar();
-    alerta.style.display = "none";
-    if (entrada.value == "") {
-      mostrar();
+    if (top > 640) {
+      gameContainer.removeChild(enemy.element);
+      enemyCars.splice(i, 1);
+      score += 10;
+      updateScore();
     }
-  } else {
-    mostrar();
-    salida.value = "";
-    alerta.style.display = "flex";
+  });
+}
+
+function moveCoins() {
+  coins.forEach((coin, i) => {
+    let top = parseInt(coin.element.style.top) + enemySpeed;
+    coin.element.style.top = `${top}px`;
+
+    if (coin.lane === playerLane && top >= 520 && top <= 580) {
+      coinSound.play();
+      gameContainer.removeChild(coin.element);
+      coins.splice(i, 1);
+      score += 20;
+      updateScore();
+    }
+
+    if (top > 640) {
+      gameContainer.removeChild(coin.element);
+      coins.splice(i, 1);
+    }
+  });
+}
+
+function updateScore() {
+  scoreDisplay.textContent = `Puntaje: ${score}`;
+  if (score >= level * 100) {
+    level++;
+    levelDisplay.textContent = `Nivel: ${level}`;
+    enemySpeed += 1;
   }
 }
 
-function borrar() {
-  mostrar();
-  salida.value = "";
-  entrada.value = "";
-  alerta.style.display = "none";
+function endGame() {
+  gameRunning = false;
+  gameOverDisplay.style.display = 'block';
+  backgroundMusic.pause();
 }
 
-function copiarTexto() {
-  if (salida.value != "") {
-    navigator.clipboard.writeText(salida.value);
-    notificacion.style.display = "flex";
-    setTimeout(() => {
-      notificacion.style.display = "none";
-    }, 3000);
-  }
+function restartGame() {
+  gameRunning = true;
+  score = 0;
+  level = 1;
+  enemySpeed = 4;
+  scoreDisplay.textContent = "Puntaje: 0";
+  levelDisplay.textContent = "Nivel: 1";
+  enemyCars.forEach(e => e.element.remove());
+  coins.forEach(c => c.element.remove());
+  enemyCars.length = 0;
+  coins.length = 0;
+  playerLane = 1;
+  setPlayerPosition();
+  gameOverDisplay.style.display = 'none';
+  backgroundMusic.play();
+  gameLoop();
 }
 
-function oscuro(){
-  document.body.classList.toggle('dark')
+function movePlayer(direction) {
+  moveSound.play();
+  if (direction === 'left' && playerLane > 0) playerLane--;
+  if (direction === 'right' && playerLane < 2) playerLane++;
+  setPlayerPosition();
 }
 
-encriptador.onclick = cifrar;
-desencriptador.onclick = decifrar;
-limpiar.onclick = borrar;
-copiar.onclick = copiarTexto;
-dark.onclick = oscuro;
+leftButton.onclick = () => movePlayer('left');
+rightButton.onclick = () => movePlayer('right');
+restartButton.onclick = restartGame;
+
+function gameLoop() {
+  if (!gameRunning) return;
+  if (Math.random() < 0.025) createEnemyCar();
+  if (Math.random() < 0.01) createCoin();
+  moveEnemies();
+  moveCoins();
+  requestAnimationFrame(gameLoop);
+}
+
+setPlayerPosition();
+gameLoop();
