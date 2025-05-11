@@ -150,12 +150,26 @@
     #dark-mode-toggle:hover {
       transform: scale(1.2);
     }
+
+    /* Interactive Images */
+    .logo {
+      width: 120px;
+      height: auto;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 <body>
   <!-- Imágenes Interactivas -->
-  <img class="logo" src="NuevoLogo.png" alt="Logo Principal">
-  <img class="logo" src="Excel.jpg" alt="Logo Excel">
+  <img class="logo" src="./NuevoLogo.png" alt="Logo Principal">
+  <img class="logo" src="./Excel.jpg" alt="Logo Excel">
 
   <!-- Contenido Principal -->
   <h1>Fórmulas Útiles para Excel</h1>
