@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,233 +8,214 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
+    }body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #217346, #106230);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #217346, #106230);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
+p.subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 
-    p.subtitle {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
+.container {
+  width: 100%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  max-height: 580px;
+  transition: background-color 0.3s ease;
+}
 
-    .search-box {
-      width: 100%;
-      max-width: 340px;
-      margin-bottom: 1rem;
-    }
+.formula-item {
+  background: rgba(38, 115, 45, 0.8);
+  border-radius: 12px;
+  padding: 0.9rem;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
 
-    #search-box {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 0.9rem;
-      outline: none;
-    }
+.formula-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
 
-    .container {
-      width: 100%;
-      max-width: 340px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 1rem;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      overflow-y: auto;
-      max-height: 580px;
-      transition: background-color 0.3s ease;
-    }
+.formula-desc {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
 
-    .formula-item {
-      background: rgba(38, 115, 45, 0.8);
-      border-radius: 12px;
-      padding: 0.9rem;
-      margin-bottom: 12px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
+.formula-code {
+  background: rgba(11, 66, 22, 0.8);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  color: #a7e399;
+}
 
-    .formula-item:hover {
-      transform: scale(1.02);
-    }
+a.tutorial-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #adebad;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
-    .formula-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
+a.tutorial-link:hover {
+  color: #d1f3d1;
+}
 
-    .formula-desc {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
+button.copy-btn {
+  background: #2c7a2c;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    .formula-code {
-      background: rgba(11, 66, 22, 0.8);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9rem;
-      padding: 6px 10px;
-      border-radius: 8px;
-      margin-bottom: 6px;
-      color: #a7e399;
-    }
+button.copy-btn:hover {
+  background: #1e541e;
+}
 
-    a.tutorial-link {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #adebad;
-      text-decoration: underline;
-      cursor: pointer;
-    }
+button.copy-btn:active {
+  background: #143714;
+}
 
-    a.tutorial-link:hover {
-      color: #d1f3d1;
-    }
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: auto;
+}
 
-    button.copy-btn {
-      background: #2c7a2c;
-      border: none;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
 
-    button.copy-btn:hover {
-      background: #1e541e;
-    }
+body.dark-mode .container {
+  background: rgba(255, 255, 255, 0.05);
+}
 
-    button.copy-btn:active {
-      background: #143714;
-    }
+body.dark-mode .formula-item {
+  background: rgba(38, 38, 38, 0.8);
+}
 
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      margin-top: auto;
-    }
+body.dark-mode .formula-code {
+  background: rgba(22, 22, 22, 0.9);
+}
 
-    /* Dark Mode */
-    body.dark-mode {
-      background: #121212;
-      color: #e0e0e0;
-    }
+#dark-mode-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-    body.dark-mode .container {
-      background: rgba(255, 255, 255, 0.05);
-    }
+#dark-mode-toggle:hover {
+  transform: scale(1.2);
+}
 
-    body.dark-mode .formula-item {
-      background: rgba(38, 38, 38, 0.8);
-    }
+.logo {
+  width: 120px;
+  height: auto;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    body.dark-mode .formula-code {
-      background: rgba(22, 22, 22, 0.9);
-    }
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
-    body.dark-mode #search-box {
-      background: #333;
-      color: #fff;
-    }
-
-    /* Mode Switcher */
-    #dark-mode-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 24px;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    #dark-mode-toggle:hover {
-      transform: scale(1.2);
-    }
-
-    /* Interactive Images */
-    .logo {
-      width: 120px;
-      height: auto;
-      margin: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
   </style>
 </head>
 <body>
-  <!-- Imágenes Interactivas -->
   <img class="logo" src="./NuevoLogo.png" alt="Logo Principal">
-  <img class="logo" src="./Excel.jpg" alt="Logo Excel">
-
-  <!-- Contenido Principal -->
-  <h1>Fórmulas Útiles para Excel</h1>
+  <img class="logo" src="./Excel.jpg" alt="Logo Excel">  <h1>Fórmulas Útiles para Excel</h1>
   <p class="subtitle">Haz clic en "Copiar" para usar la fórmula en tu hoja de cálculo.</p>
-
-  <div class="search-box">
-    <input type="text" id="search-box" placeholder="Buscar fórmula...">
-  </div>
-
   <div class="container">
-    <!-- Fórmulas -->
     <div class="formula-item">
       <div class="formula-title">Suma de un rango</div>
       <div class="formula-desc">Suma todos los valores del rango A1 a A10.</div>
       <code class="formula-code">=SUMA(A1:A10)</code>
-      <button class="copy-btn" aria-label="Copiar fórmula de suma">Copiar</button>
+      <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=hEjxB6N9zv4" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Promedio</div>
-      <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
-      <code class="formula-code">=PROMEDIO(B1:B10)</code>
-      <button class="copy-btn" aria-label="Copiar fórmula de promedio">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Macros en Excel</div>
-      <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
-      <code class="formula-code">Alt + F11 para abrir VBA</code>
-      <button class="copy-btn" aria-label="Copiar acceso a macros">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=9JOclILZXa4" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
-  </div>
+    </div><div class="formula-item">
+  <div class="formula-title">Promedio</div>
+  <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
+  <code class="formula-code">=PROMEDIO(B1:B10)</code>
+  <button class="copy-btn">Copiar</button>
+  <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
+</div>
 
-  <!-- Footer -->
-  <footer>App creada con ❤️ para mejorar tu experiencia con Excel.</footer>
+<div class="formula-item">
+  <div class="formula-title">Macros en Excel</div>
+  <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
+  <code class="formula-code">Alt + F11 para abrir el editor VBA</code>
+  <button class="copy-btn">Copiar</button>
+  <a href="https://www.youtube.com/watch?v=9JOclILZXa4" class="tutorial-link" target="_blank">Ver Tutorial</a>
+</div>
 
-  <!-- Botón de Modo Oscuro -->
-  <button id="dark-mode-toggle">&#9728;</button>
+<div class="formula-item">
+  <div class="formula-title">Sumar horas</div>
+  <div class="formula-desc">Suma dos celdas con horas (formato hh:mm).</div>
+  <code class="formula-code">=A1+B1</code>
+  <button class="copy-btn">Copiar</button>
+  <a href="https://www.youtube.com/watch?v=ozpP0D4Z0JY" class="tutorial-link" target="_blank">Ver Tutorial</a>
+</div>
+
+<div class="formula-item">
+  <div class="formula-title">Restar horas</div>
+  <div class="formula-desc">Calcula la diferencia entre dos horas.</div>
+  <code class="formula-code">=B1-A1</code>
+  <button class="copy-btn">Copiar</button>
+  <a href="https://www.youtube.com/watch?v=t16CGiQtLm8" class="tutorial-link" target="_blank">Ver Tutorial</a>
+</div>
+
+<div class="formula-item">
+  <div class="formula-title">Concatenar textos</div>
+  <div class="formula-desc">Une el contenido de dos celdas.</div>
+  <code class="formula-code">=CONCATENAR(A1, " ", B1)</code>
+  <button class="copy-btn">Copiar</button>
+  <a href="https://www.youtube.com/watch?v=7dHgu8NGnRw" class="tutorial-link" target="_blank">Ver Tutorial</a>
+</div>
+
+  </div>  <footer>App creada con ❤️ para mejorar tu experiencia con Excel.</footer><button id="dark-mode-toggle">☀</button>
 
   <script>
-    // Copiar al portapapeles
     document.querySelectorAll('.copy-btn').forEach(button => {
       button.addEventListener('click', () => {
         const formula = button.previousElementSibling.textContent;
@@ -246,30 +226,10 @@
       });
     });
 
-    // Alternar Modo Oscuro con almacenamiento
     const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
-    if (localStorage.getItem('dark-mode') === 'true') {
-      body.classList.add('dark-mode');
-      darkModeToggle.innerHTML = '&#9729;';
-    }
-
     darkModeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDark = body.classList.contains('dark-mode');
-      darkModeToggle.innerHTML = isDark ? '&#9729;' : '&#9728;';
-      localStorage.setItem('dark-mode', isDark);
+      document.body.classList.toggle('dark-mode');
+      darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '&#9729;' : '&#9728;';
     });
-
-    // Filtro de búsqueda
-    document.getElementById('search-box').addEventListener('input', function () {
-      const query = this.value.toLowerCase();
-      document.querySelectorAll('.formula-item').forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? 'block' : 'none';
-      });
-    });
-  </script>
-</body>
+  </script></body>
 </html>
