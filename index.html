@@ -36,6 +36,21 @@
       text-align: center;
     }
 
+    .search-box {
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 1rem;
+    }
+
+    #search-box {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
     .container {
       width: 100%;
       max-width: 340px;
@@ -53,7 +68,11 @@
       border-radius: 12px;
       padding: 0.9rem;
       margin-bottom: 12px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .formula-item:hover {
+      transform: scale(1.02);
     }
 
     .formula-title {
@@ -134,6 +153,11 @@
       background: rgba(22, 22, 22, 0.9);
     }
 
+    body.dark-mode #search-box {
+      background: #333;
+      color: #fff;
+    }
+
     /* Mode Switcher */
     #dark-mode-toggle {
       position: fixed;
@@ -174,27 +198,32 @@
   <!-- Contenido Principal -->
   <h1>Fórmulas Útiles para Excel</h1>
   <p class="subtitle">Haz clic en "Copiar" para usar la fórmula en tu hoja de cálculo.</p>
+
+  <div class="search-box">
+    <input type="text" id="search-box" placeholder="Buscar fórmula...">
+  </div>
+
   <div class="container">
     <!-- Fórmulas -->
     <div class="formula-item">
       <div class="formula-title">Suma de un rango</div>
       <div class="formula-desc">Suma todos los valores del rango A1 a A10.</div>
       <code class="formula-code">=SUMA(A1:A10)</code>
-      <button class="copy-btn">Copiar</button>
+      <button class="copy-btn" aria-label="Copiar fórmula de suma">Copiar</button>
       <a href="https://www.youtube.com/watch?v=hEjxB6N9zv4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
     <div class="formula-item">
       <div class="formula-title">Promedio</div>
       <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
       <code class="formula-code">=PROMEDIO(B1:B10)</code>
-      <button class="copy-btn">Copiar</button>
+      <button class="copy-btn" aria-label="Copiar fórmula de promedio">Copiar</button>
       <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
     <div class="formula-item">
       <div class="formula-title">Macros en Excel</div>
       <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
       <code class="formula-code">Alt + F11 para abrir VBA</code>
-      <button class="copy-btn">Copiar</button>
+      <button class="copy-btn" aria-label="Copiar acceso a macros">Copiar</button>
       <a href="https://www.youtube.com/watch?v=9JOclILZXa4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
   </div>
@@ -217,11 +246,29 @@
       });
     });
 
-    // Alternar Modo Oscuro
+    // Alternar Modo Oscuro con almacenamiento
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('dark-mode') === 'true') {
+      body.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '&#9729;';
+    }
+
     darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '&#9729;' : '&#9728;';
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      darkModeToggle.innerHTML = isDark ? '&#9729;' : '&#9728;';
+      localStorage.setItem('dark-mode', isDark);
+    });
+
+    // Filtro de búsqueda
+    document.getElementById('search-box').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.formula-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
     });
   </script>
 </body>
