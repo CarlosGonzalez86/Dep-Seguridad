@@ -77,6 +77,20 @@
       color: #a7e399;
     }
 
+    a.tutorial-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #adebad;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    a.tutorial-link:hover {
+      color: #d1f3d1;
+    }
+
     button.copy-btn {
       background: #2c7a2c;
       border: none;
@@ -120,36 +134,21 @@
       background: rgba(22, 22, 22, 0.9);
     }
 
-    /* Interactive Images */
-    .logo {
-      width: 100px;
-      height: auto;
-      margin: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
     /* Mode Switcher */
     #dark-mode-toggle {
       position: fixed;
       top: 10px;
       right: 10px;
-      background: #333;
-      color: #fff;
+      background: none;
       border: none;
-      padding: 10px 15px;
-      border-radius: 8px;
+      font-size: 24px;
+      color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     #dark-mode-toggle:hover {
-      background: #555;
+      transform: scale(1.2);
     }
   </style>
 </head>
@@ -168,48 +167,21 @@
       <div class="formula-desc">Suma todos los valores del rango A1 a A10.</div>
       <code class="formula-code">=SUMA(A1:A10)</code>
       <button class="copy-btn">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=hEjxB6N9zv4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
     <div class="formula-item">
       <div class="formula-title">Promedio</div>
       <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
       <code class="formula-code">=PROMEDIO(B1:B10)</code>
       <button class="copy-btn">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
     <div class="formula-item">
-      <div class="formula-title">Contar celdas no vacías</div>
-      <div class="formula-desc">Cuenta las celdas con datos en C1:C20.</div>
-      <code class="formula-code">=CONTARA(C1:C20)</code>
+      <div class="formula-title">Macros en Excel</div>
+      <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
+      <code class="formula-code">Alt + F11 para abrir VBA</code>
       <button class="copy-btn">Copiar</button>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Condicional SI</div>
-      <div class="formula-desc">Devuelve "Aprobado" si D1 es mayor o igual a 70, de lo contrario "Reprobado".</div>
-      <code class="formula-code">=SI(D1>=70, "Aprobado", "Reprobado")</code>
-      <button class="copy-btn">Copiar</button>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">BuscarV</div>
-      <div class="formula-desc">Busca el valor de E1 en la primera columna de la tabla A1:C10 y devuelve el valor de la segunda columna.</div>
-      <code class="formula-code">=BUSCARV(E1, A1:C10, 2, FALSO)</code>
-      <button class="copy-btn">Copiar</button>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Concatenar texto</div>
-      <div class="formula-desc">Une los textos de A2 y B2 con un espacio entre ellos.</div>
-      <code class="formula-code">=CONCATENAR(A2, " ", B2)</code>
-      <button class="copy-btn">Copiar</button>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Fecha actual</div>
-      <div class="formula-desc">Devuelve la fecha actual del sistema.</div>
-      <code class="formula-code">=HOY()</code>
-      <button class="copy-btn">Copiar</button>
-    </div>
-    <div class="formula-item">
-      <div class="formula-title">Número aleatorio</div>
-      <div class="formula-desc">Genera un número decimal aleatorio entre 0 y 1.</div>
-      <code class="formula-code">=ALEATORIO()</code>
-      <button class="copy-btn">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=9JOclILZXa4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
   </div>
 
@@ -217,7 +189,7 @@
   <footer>App creada con ❤️ para mejorar tu experiencia con Excel.</footer>
 
   <!-- Botón de Modo Oscuro -->
-  <button id="dark-mode-toggle">Modo Oscuro</button>
+  <button id="dark-mode-toggle">&#9728;</button>
 
   <script>
     // Copiar al portapapeles
@@ -235,14 +207,7 @@
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     darkModeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
-    });
-
-    // Imágenes Interactivas
-    document.querySelectorAll('.logo').forEach(img => {
-      img.addEventListener('click', () => {
-        alert(`¡Haz clic en la imagen: ${img.alt}!`);
-      });
+      darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '&#9729;' : '&#9728;';
     });
   </script>
 </body>
