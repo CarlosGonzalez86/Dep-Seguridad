@@ -1,10 +1,17 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fórmulas Útiles para Excel</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Estilos base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #217346, #106230);
@@ -16,8 +23,20 @@
       padding: 1rem;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    h1 { font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 0.5rem; }
-    p.subtitle { font-size: 0.9rem; margin-bottom: 1rem; text-align: center; }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
     .container {
       width: 100%;
       max-width: 340px;
@@ -27,15 +46,28 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
       overflow-y: auto;
       max-height: 580px;
+      transition: background-color 0.3s ease;
     }
+
     .formula-item {
       background: rgba(38, 115, 45, 0.8);
       border-radius: 12px;
       padding: 0.9rem;
       margin-bottom: 12px;
+      transition: background-color 0.3s ease;
     }
-    .formula-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
-    .formula-desc { font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    .formula-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .formula-desc {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
     .formula-code {
       background: rgba(11, 66, 22, 0.8);
       font-family: 'Courier New', Courier, monospace;
@@ -46,6 +78,7 @@
       color: #a7e399;
       display: block;
     }
+
     a.tutorial-link {
       display: inline-block;
       margin-top: 6px;
@@ -55,6 +88,11 @@
       text-decoration: underline;
       cursor: pointer;
     }
+
+    a.tutorial-link:hover {
+      color: #d1f3d1;
+    }
+
     button.copy-btn {
       background: #2c7a2c;
       border: none;
@@ -63,14 +101,84 @@
       font-weight: 600;
       color: white;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 6px;
     }
-    footer { text-align: center; font-size: 0.8rem; margin-top: auto; }
+
+    button.copy-btn:hover {
+      background: #1e541e;
+    }
+
+    button.copy-btn:active {
+      background: #143714;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-top: auto;
+    }
+
+    /* Modo oscuro */
+    body.dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .container {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-mode .formula-item {
+      background: rgba(38, 38, 38, 0.8);
+    }
+
+    body.dark-mode .formula-code {
+      background: rgba(22, 22, 22, 0.9);
+    }
+
+    /* Botón de modo oscuro */
+    #dark-mode-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #dark-mode-toggle:hover {
+      transform: scale(1.2);
+    }
+
+    /* Imágenes interactivas */
+    .logo {
+      width: 120px;
+      height: auto;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 <body>
+  <!-- Imágenes Interactivas -->
+  <img class="logo" src="./NuevoLogo.png" alt="Logo Principal">
+  <img class="logo" src="./Excel.jpg" alt="Logo Excel">
+
+  <!-- Contenido Principal -->
   <h1>Fórmulas Útiles para Excel</h1>
   <p class="subtitle">Haz clic en "Copiar" para usar la fórmula en tu hoja de cálculo.</p>
   <div class="container">
+    <!-- Fórmulas -->
     <div class="formula-item">
       <div class="formula-title">Suma de un rango</div>
       <div class="formula-desc">Suma todos los valores del rango A1 a A10.</div>
@@ -78,6 +186,7 @@
       <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
+
     <div class="formula-item">
       <div class="formula-title">Promedio</div>
       <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
@@ -85,6 +194,7 @@
       <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
+
     <div class="formula-item">
       <div class="formula-title">Macros en Excel</div>
       <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
@@ -92,6 +202,7 @@
       <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=IJQHMFLXk_c" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
+
     <div class="formula-item">
       <div class="formula-title">Sumar horas y minutos</div>
       <div class="formula-desc">Suma tiempos en formato hh:mm.</div>
@@ -99,23 +210,24 @@
       <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=HavahzogGIg" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
+
+    <div class="formula-item">
+      <div class="formula-title">Agregar minutos a una hora</div>
+      <div class="formula-desc">Agrega 30 minutos a la hora en A1.</div>
+      <code class="formula-code">=A1 + (30/1440)</code>
+      <button class="copy-btn">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=zX1dYqjqVBo" class="tutorial-link" target="_blank">Ver Tutorial</a>
+    </div>
+
     <div class="formula-item">
       <div class="formula-title">Función SI</div>
-      <div class="formula-desc">Devuelve "Aprobado" si A1 >= 60, de lo contrario "Reprobado".</div>
+      <div class="formula-desc">Devuelve "Aprobado" si A1 es mayor o igual a 60, de lo contrario "Reprobado".</div>
       <code class="formula-code">=SI(A1>=60, "Aprobado", "Reprobado")</code>
       <button class="copy-btn">Copiar</button>
       <a href="https://www.youtube.com/watch?v=i7tj1tBM-iI" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
-  </div>
-  <script>
-    document.querySelectorAll('.copy-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const code = button.previousElementSibling.textContent;
-        navigator.clipboard.writeText(code);
-        button.textContent = 'Copiado!';
-        setTimeout(() => { button.textContent = 'Copiar'; }, 2000);
-      });
-    });
-  </script>
-</body>
-</html> 
+
+    <div class="formula-item">
+      <div class="formula-title">BUSCARV</div>
+      <div class="formula-desc">Busca el valor de A1 en la primera columna del rango B1:D10 y devuelve el valor de la segunda columna.</div>
+      <code class="formula-code">=BUSCARV(A1, B1:D1021
