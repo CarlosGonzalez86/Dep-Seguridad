@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Fórmulas Útiles para Excel</title>
   <style>
-    /* Estilos base */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -37,6 +36,21 @@
       text-align: center;
     }
 
+    .search-box {
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 1rem;
+    }
+
+    #search-box {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
     .container {
       width: 100%;
       max-width: 340px;
@@ -54,7 +68,11 @@
       border-radius: 12px;
       padding: 0.9rem;
       margin-bottom: 12px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .formula-item:hover {
+      transform: scale(1.02);
     }
 
     .formula-title {
@@ -76,7 +94,6 @@
       border-radius: 8px;
       margin-bottom: 6px;
       color: #a7e399;
-      display: block;
     }
 
     a.tutorial-link {
@@ -102,7 +119,6 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      margin-top: 6px;
     }
 
     button.copy-btn:hover {
@@ -119,7 +135,7 @@
       margin-top: auto;
     }
 
-    /* Modo oscuro */
+    /* Dark Mode */
     body.dark-mode {
       background: #121212;
       color: #e0e0e0;
@@ -137,7 +153,12 @@
       background: rgba(22, 22, 22, 0.9);
     }
 
-    /* Botón de modo oscuro */
+    body.dark-mode #search-box {
+      background: #333;
+      color: #fff;
+    }
+
+    /* Mode Switcher */
     #dark-mode-toggle {
       position: fixed;
       top: 10px;
@@ -154,7 +175,7 @@
       transform: scale(1.2);
     }
 
-    /* Imágenes interactivas */
+    /* Interactive Images */
     .logo {
       width: 120px;
       height: auto;
@@ -177,57 +198,78 @@
   <!-- Contenido Principal -->
   <h1>Fórmulas Útiles para Excel</h1>
   <p class="subtitle">Haz clic en "Copiar" para usar la fórmula en tu hoja de cálculo.</p>
+
+  <div class="search-box">
+    <input type="text" id="search-box" placeholder="Buscar fórmula...">
+  </div>
+
   <div class="container">
     <!-- Fórmulas -->
     <div class="formula-item">
       <div class="formula-title">Suma de un rango</div>
       <div class="formula-desc">Suma todos los valores del rango A1 a A10.</div>
       <code class="formula-code">=SUMA(A1:A10)</code>
-      <button class="copy-btn">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
+      <button class="copy-btn" aria-label="Copiar fórmula de suma">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=hEjxB6N9zv4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
-
     <div class="formula-item">
       <div class="formula-title">Promedio</div>
       <div class="formula-desc">Calcula el promedio del rango B1 a B10.</div>
       <code class="formula-code">=PROMEDIO(B1:B10)</code>
-      <button class="copy-btn">Copiar</button>
+      <button class="copy-btn" aria-label="Copiar fórmula de promedio">Copiar</button>
       <a href="https://www.youtube.com/watch?v=5rZKnBoOj8w" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
-
     <div class="formula-item">
       <div class="formula-title">Macros en Excel</div>
       <div class="formula-desc">Aprende a usar macros para automatizar tareas.</div>
       <code class="formula-code">Alt + F11 para abrir VBA</code>
-      <button class="copy-btn">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=IJQHMFLXk_c" class="tutorial-link" target="_blank">Ver Tutorial</a>
+      <button class="copy-btn" aria-label="Copiar acceso a macros">Copiar</button>
+      <a href="https://www.youtube.com/watch?v=9JOclILZXa4" class="tutorial-link" target="_blank">Ver Tutorial</a>
     </div>
+  </div>
 
-    <div class="formula-item">
-      <div class="formula-title">Sumar horas y minutos</div>
-      <div class="formula-desc">Suma tiempos en formato hh:mm.</div>
-      <code class="formula-code">=A1+A2</code>
-      <button class="copy-btn">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=HavahzogGIg" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
+  <!-- Footer -->
+  <footer>App creada con ❤️ para mejorar tu experiencia con Excel.</footer>
 
-    <div class="formula-item">
-      <div class="formula-title">Agregar minutos a una hora</div>
-      <div class="formula-desc">Agrega 30 minutos a la hora en A1.</div>
-      <code class="formula-code">=A1 + (30/1440)</code>
-      <button class="copy-btn">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=zX1dYqjqVBo" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
+  <!-- Botón de Modo Oscuro -->
+  <button id="dark-mode-toggle">&#9728;</button>
 
-    <div class="formula-item">
-      <div class="formula-title">Función SI</div>
-      <div class="formula-desc">Devuelve "Aprobado" si A1 es mayor o igual a 60, de lo contrario "Reprobado".</div>
-      <code class="formula-code">=SI(A1>=60, "Aprobado", "Reprobado")</code>
-      <button class="copy-btn">Copiar</button>
-      <a href="https://www.youtube.com/watch?v=i7tj1tBM-iI" class="tutorial-link" target="_blank">Ver Tutorial</a>
-    </div>
+  <script>
+    // Copiar al portapapeles
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const formula = button.previousElementSibling.textContent;
+        navigator.clipboard.writeText(formula).then(() => {
+          button.textContent = '¡Copiado!';
+          setTimeout(() => button.textContent = 'Copiar', 1500);
+        }).catch(() => alert('Error al copiar. Intenta de nuevo.'));
+      });
+    });
 
-    <div class="formula-item">
-      <div class="formula-title">BUSCARV</div>
-      <div class="formula-desc">Busca el valor de A1 en la primera columna del rango B1:D10 y devuelve el valor de la segunda columna.</div>
-      <code class="formula-code">=BUSCARV(A1, B1:D1021
+    // Alternar Modo Oscuro con almacenamiento
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('dark-mode') === 'true') {
+      body.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '&#9729;';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      darkModeToggle.innerHTML = isDark ? '&#9729;' : '&#9728;';
+      localStorage.setItem('dark-mode', isDark);
+    });
+
+    // Filtro de búsqueda
+    document.getElementById('search-box').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.formula-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
